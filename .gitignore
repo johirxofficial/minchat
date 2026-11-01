@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+client/dist/
+dist/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Runtime data
+storage/
+storage-test/
+backups/
+*.dump
+*.tar.gz
+
+# Logs and test artifacts
+*.log
+logs/
+coverage/
+test-results/
+playwright-report/
+.vite/
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

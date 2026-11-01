@@ -1,0 +1,39 @@
+[Unit]
+Description=MinChat chat and calling platform
+Documentation=https://github.com/johirxofficial/minchat
+After=network-online.target postgresql.service redis-server.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=minchat
+Group=minchat
+WorkingDirectory=/srv/minchat
+EnvironmentFile=/etc/minchat/minchat.env
+ExecStart=/usr/bin/node /srv/minchat/server/src/index.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+KillSignal=SIGTERM
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+ReadWritePaths=/srv/minchat/storage
+UMask=0077
+
+# Logs go to the journal; view with `journalctl -u minchat -f`.
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=minchat
+
+[Install]
+WantedBy=multi-user.target

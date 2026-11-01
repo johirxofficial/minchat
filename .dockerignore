@@ -1,0 +1,15 @@
+node_modules
+**/node_modules
+client/dist
+storage
+backups
+.env
+.env.*
+!.env.example
+.git
+.github
+test-results
+playwright-report
+coverage
+*.log
+.DS_Store
