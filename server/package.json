@@ -10,7 +10,7 @@
     "migrate": "node src/scripts/migrate.js",
     "seed:admin": "node src/scripts/seed-admin.js",
     "cleanup": "node src/scripts/cleanup.js",
-    "test": "node --test --test-concurrency=1 tests/",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
     "test:e2e": "playwright test",
     "backup": "bash ../deploy/scripts/backup.sh",
     "seed:demo": "node src/scripts/seed-demo.js"
